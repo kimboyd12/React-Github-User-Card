@@ -1,15 +1,16 @@
 import React from "react";
 
-function UserCard(props) {
-    return (
-        <div className="user-card">
-            <img width="200" src={props.picture} alt="user picture" />
-            <h4>{props.name}</h4>
-            <p>{props.location}</p>
-            <p>{props.bio}</p>
-        </div>
-    )
+class UserCard extends React.Component {
+    render() {
+        return (
+            <div className="card">
+                <img width="200" src={this.props.userData.avatar_url} />
+                <h3>{this.props.userData.name}</h3>
+                <p>{this.props.userData.location}</p>
+                <p>{this.props.userData.bio}</p>
+            </div>
+        )
+    }
 }
-
 
 export default UserCard;
