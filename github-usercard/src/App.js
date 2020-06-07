@@ -3,6 +3,11 @@ import './App.css';
 import axios from "axios";
 import UserCard from "./components/UserCard";
 import FollowerCard from "./components/FollowerCard";
+import styled from "styled-components";
+
+const Header = styled.h1`
+  color: #AC3B61;
+`
 
 
 
@@ -13,11 +18,10 @@ class App extends React.Component {
       followerData: []
     }
   
-
-
     componentDidMount() {
       console.log("componentDidMount is running");
 
+      // API call for my data
       axios
         .get("https://api.github.com/users/kimboyd12")
         .then(res => {
@@ -26,6 +30,7 @@ class App extends React.Component {
         })
         .catch(err => console.log(err));
 
+        // API call for follower data
         axios
         .get("https://api.github.com/users/kimboyd12/followers")
         .then(res => {
@@ -35,10 +40,11 @@ class App extends React.Component {
         .catch(err => console.log(err));
     }
 
+
   render() {
     return (
       <div className="App">
-        <h1>Github Usercard Project</h1>
+        <Header>Github Usercard Project</Header>
         <div>
         <UserCard userData={this.state.userData} />
         <FollowerCard followerData={this.state.followerData} />
