@@ -35,6 +35,7 @@ const Image = styled.img`
 class UserCard extends React.Component {
     render() {
         return (
+            <div>
             <Card>
                 <Image width="250" src={this.props.userData.avatar_url} />
                 <Info>
@@ -43,6 +44,8 @@ class UserCard extends React.Component {
                 <p>{this.props.userData.bio}</p>
                 </Info>
             </Card>
+            <Image width="800" src="https://grass-graph.moshimo.works/images/kimboyd12.png"></Image>
+            </div>
         )
     }
 }
